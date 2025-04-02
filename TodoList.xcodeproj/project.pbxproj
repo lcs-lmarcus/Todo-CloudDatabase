@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,10 @@
 		815D9D802BC413810050957E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		815D9D832BC413810050957E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AE103B6C2D9D8E2A0014D331 /* ViewModel */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModel; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		815D9D762BC413800050957E /* Frameworks */ = {
@@ -61,6 +65,7 @@
 				815D9D8A2BC413F70050957E /* Views */,
 				815D9D802BC413810050957E /* Assets.xcassets */,
 				815D9D822BC413810050957E /* Preview Content */,
+				AE103B6C2D9D8E2A0014D331 /* ViewModel */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -111,6 +116,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AE103B6C2D9D8E2A0014D331 /* ViewModel */,
 			);
 			name = TodoList;
 			productName = TodoList;
