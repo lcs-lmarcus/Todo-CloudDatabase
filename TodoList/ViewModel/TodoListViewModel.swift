@@ -30,7 +30,6 @@ class TodoListViewModel {
             let results: [TodoItem] = try await supabase
                 .from("todos")
                 .select()
-                .order("id", ascending: true)
                 .execute()
                 .value
             
@@ -112,13 +111,13 @@ class TodoListViewModel {
            Task {
                
                do {
-                   
-                   // Run the update command
-                   try await supabase
+                   let results: [TodoItem] = try await supabase
                        .from("todos")
                        .update(updatedTodo)
-                       .eq("id", value: updatedTodo.id!)   // Only update the row whose id
+                       .order("id", ascending: true)   // Only update the row whose id
                        .execute()                          // matches that of the to-do being deleted
+                       .value
+                   self.todos = results
                        
                } catch {
                    debugPrint(error)
@@ -127,6 +126,37 @@ class TodoListViewModel {
            }
            
        }
+
+    func filterTodos(on searchTerm: String) async throws {
+     
+        if searchTerm.isEmpty {
+     
+            // Get all the to-dos
+            Task {
+                try await getTodos()
+            }
+     
+        } else {
+     
+            // Get a filtered list of to-dos
+            do {
+                let results: [TodoItem] = try await supabase
+                    .from("todos")
+                    .select()
+                    .ilike("title", pattern: "%\(searchTerm)%")
+                    .order("id", ascending: true)
+                    .execute()
+                    .value
+     
+                self.todos = results
+     
+            } catch {
+                debugPrint(error)
+            }
+     
+        }
+     
+    }
 
 }
 
